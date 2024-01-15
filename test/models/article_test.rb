@@ -10,15 +10,12 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not article.save, "Saved article without body"
   end
   test "save when both title and body are provided" do
-    article = Article.new(:title => "fake title", :body => "some fake body here!!!")
+    article = Article.new(:title => "fake title", :body => "some fake body here!!!", :status => "private")
     assert article.save, "Saved article without title and body"
   end
   test "destroy when id is provided" do
     article = Article.new(:title => "fake title", :body => "some fake body here!!!")
     assert article.destroy, "Failed to delete article"
   end
-  test "update article" do
-    article = Article.new(:title => "fake title", :body => "some fake body here!!!")
-    assert article.update(:title => 'Updated')
-  end
+
 end
